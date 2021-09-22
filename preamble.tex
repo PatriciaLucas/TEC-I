@@ -1,0 +1,120 @@
+% Preamble file - general definitions, package loading, etc.
+
+%=================================
+% Load packages
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees,arrows}
+\usepackage{fancyvrb}
+\usepackage[portuguese]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{subfigure}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[document]{ragged2e}
+\usepackage{hyperref}
+\usepackage{listings}
+
+
+%=================================
+% Set mode
+\mode<presentation>
+{
+	\usetheme{Madrid}
+	\usecolortheme{structure}
+	\useoutertheme{infolines}
+	\setbeamercovered{invisible}
+}
+
+% Get rid of nav bar
+\beamertemplatenavigationsymbolsempty
+
+% Insert frame number at bottom of the page.
+\usefoottemplate{\hfil\tiny{\color{black!90}\insertframenumber}} 
+
+%=================================
+% Define new commands
+
+\newcommand\Real{{\mathbb{R}}}
+%\newcommand{\vi}{\vspace{0.6\baselineskip}}
+%\newcommand{\goodgap}{\hspace{\subfigtopskip}\hspace{\subfigbottomskip}}
+
+
+% Equation environments
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eq}{\end{equation}}
+\newcommand{\beqs}{\begin{equation*}}
+\newcommand{\eqs}{\end{equation*}}
+\newcommand{\beqn}{\begin{eqnarray}}
+\newcommand{\eqn}{\end{eqnarray}}
+% Bold variables
+\newcommand{\mbf}[1]{\ensuremath{\mathbf{#1}}}
+% Itemization
+\newcommand{\bitem}{\begin{itemize}}
+\newcommand{\eitem}{\end{itemize}}
+\newcommand{\spitem}{\vskip 1em\item}
+\newcommand{\bitems}{\begin{itemize}\item}
+\newcommand{\benums}{\begin{enumerate}\item}
+\newcommand{\eenum}{\end{enumerate}}
+% color blocks
+\newenvironment{colorblock}[2]{%
+\setbeamercolor{block title}{#2}
+\begin{block}{#1}}{\end{block}}
+% Vertical spacing
+\newcommand{\vone}{\vskip 1em}
+\newcommand{\vhalf}{\vskip .5em}
+% Frame environments
+\newenvironment{ftst}[3][t]{%
+\begin{frame}{environment=ftst,#1}
+\frametitle{#2}
+\framesubtitle{#3}}{\end{frame}}
+\newenvironment{ftstf}[2]{
+\begin{frame}[fragile,environment=ftstf]
+\frametitle{#1}
+\framesubtitle{#2}}{\end{frame}}
+% colors
+\definecolor{MyGray}{rgb}{0.5,0.5,0.5}
+\definecolor{MyDBGray}{rgb}{0.1,0.1,0.4}
+\definecolor{darkgreen}{rgb}{0,0.4,0}
+\definecolor{black}{rgb}{0,0,0}
+\def\defn#1{{\color{red} #1}}
+% Footnote
+\renewcommand{\thefootnote}{\alph{footnote}}
+% Relaxed footnotes
+\newcommand{\lfr}[1]{\let\thefootnote\relax\footnote{\tiny #1}}
+% Verbatim environment - using FANCYVRB package
+\DefineVerbatimEnvironment%
+{rcode}{Verbatim}
+{fontsize=\scriptsize}
+
+% Verbatim environment - using LISTINGS package
+%\lstnewenvironment{rcode} {\lstset{	language = R,
+%									basicstyle = \scriptsize\ttfamily,
+%									showspaces = false,
+%									showstringspaces = false,
+%									showtabs = false,
+%									keywordstyle = \color{black}\bfseries,
+%									commentstyle = \color{darkgreen},
+%									numbers = none,
+%									otherkeywords={	<-,
+%													ggplot,
+%													geom_boxplot,
+%													facet_grid,
+%													shapiro.test,
+%													fligner.test,
+%													glht,
+%													with},
+%									deletekeywords={data,
+%													model,
+%													residuals,
+%													c,
+%													axis,
+%													default,
+%													labels,
+%													qq.text}}}%
+%{}

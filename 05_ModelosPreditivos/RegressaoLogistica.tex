@@ -1,0 +1,142 @@
+\documentclass[t]{beamer}
+
+% Load general definitions
+\input{preamble.tex}
+
+% Specific definitions
+\title[]{Tópicos Especiais em Computação I}
+\subtitle[]{Regressão Logística}
+\author[]{Patrícia Lucas\\{\footnotesize }}
+\institute{Bacharelado em Sistemas de Informação \\ IFNMG  - Campus Salinas}
+\date{\scriptsize Salinas\\Abril 2021}
+
+\begin{document}
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+% cover page
+\setbeamertemplate{footline}{}
+\begin{frame}
+
+\begin{center}
+\includegraphics[width=.15\textwidth]{}
+\end{center}
+  \titlepage
+  \begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=south east,xshift=-5pt,yshift=5pt] at (current page.south east) {\tiny Versão 1.2021};
+  \node[anchor=south west,yshift=0pt] at (current page.south west) {\includegraphics[width=.25\textwidth]{Logos/salinas_horizontal_jpg.jpg}};
+  \end{tikzpicture}  
+\end{frame}
+
+% Main slides
+
+\begin{ftst}{Referência}{Regressão Logística}
+\begin{figure}
+    \includegraphics[scale=0.3]{Figuras/slide03_01.jpg}
+\end{figure}
+Capítulo 4: Logistic Regression
+\vone
+\scriptsize
+
+An Introduction to Statistical Learning: with Applications in R. G. James, D. Witten, T. Hastie, and R. Tibshirani. Springer, 2013.
+
+\end{ftst}
+
+%=====
+
+\begin{ftst}{Exemplo}{Regressão Logística}
+\vone
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{Figuras/slide05_04.jpg}
+\end{figure}
+
+
+\end{ftst}
+
+%=====
+
+\begin{ftst}{Exemplo}{Regressão Logística}
+Vamos supor que queremos classificar os clientes como inadimplentes ou não inadimplentes de acordo com o saldo do cartão.
+\vone
+Ou seja, queremos encontrar uma curva que nos dê a probabilidade de um cliente ser inadimplente com base no seu saldo do cartão.
+\begin{equation}
+    P(\text{inadimplência}=\text{Sim} | \text{Saldo})
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.125]{Figuras/slide05_05.png}
+\end{figure}
+
+
+\end{ftst}
+
+%=====
+
+\begin{ftst}{Regressão linear??}{Regressão Logística}
+\small
+Podemos usar regressão linear para resolver esse problema? 
+
+\begin{enumerate}
+    \item Para saldos próximos a zero, prevemos uma probabilidade negativa de inadimplência.
+    \item Com saldos muito grandes, obteríamos valores maiores que 1.
+\end{enumerate} 
+
+Essas previsões não são sensatas, pois é claro que a verdadeira probabilidade de inadimplência, independentemente do saldo do cartão de crédito, deve cair entre 0 e 1. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.125]{Figuras/slide05_06.png}
+\end{figure}
+
+\end{ftst}
+
+%=====
+
+\begin{ftst}{Função logística}{Regressão logística}
+\small
+Para evitar esse problema, precisamos modelar $P(X)$ usando uma função que fornece saídas entre $0$ e $1$ para todos os valores de $X$. 
+\vone
+Na regressão logística, usamos a \textbf{função logística}, que ajusta uma curva em “S” que varia entre $0$ e $1$.
+\begin{equation}
+    P(X) = \frac{\exp{\beta_0 + \beta_1 X}}{1 + \exp{\beta_0 + \beta_1 X}}
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.12]{Figuras/slide05_07.png}
+\end{figure}
+
+
+\end{ftst}
+
+%=====
+
+\begin{ftst}{Estimativa dos coeficientes}{Regressão logística}
+Os coeficientes $\beta_0$ e $\beta_1$ são desconhecidos e devem ser estimados com base nos dados de treinamento disponíveis. 
+\vone
+Usamos a abordagem de mínimos quadrados para estimar os coeficientes de regressão linear. Para a regressão logística, usa-se geralmente o método de máxima verossimilhança.
+\vone
+A intuição básica por trás do método de máxima verossimilhança é tentar encontrar $\beta_0$ e $\beta_1$ de modo que, ao incluir essas estimativas no modelo para $P(X)$, produzam um número próximo de $1$ para todos os indivíduos que são inadimplentes e um número próximo de $0$ para todos os indivíduos que não são.
+
+\end{ftst}
+
+%=====
+
+\begin{ftst}{Estimativa dos coeficientes}{Regressão logística}
+\begin{equation}
+    l(\beta_0, \beta_1) = \prod_{i:y_i=1} p(x_i) \prod_{i':y_{i'}=0} p(x_{i'})
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{Figuras/slide05_08.png}
+\end{figure}
+
+
+\end{ftst}
+
+
+
+
+\end{document}
