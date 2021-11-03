@@ -50,8 +50,8 @@ A aprendizagem estatística refere-se a um vasto conjunto de ferramentas para a 
 Essas ferramentas podem ser classificadas como supervisionadas ou não supervisionadas. 
 \vone
 \begin{itemize}
-    \item Em termos gerais, o aprendizado estatístico supervisionado envolve a construção de um modelo estatístico para prever ou estimar uma saída com base em uma ou mais entradas. 
-    \item Com o aprendizado estatístico não supervisionado, existem entradas, mas nenhuma saída de supervisão; no entanto, podemos aprender relacionamentos e estruturas a partir de tais dados.
+    \item Na aprendizagem supervisionada, para cada observação $x_i$ (atributos preditores), há uma medição de resposta associada $y_i$. O objetivo é ajustar um modelo que relacione a resposta aos preditores, com o objetivo de prever com precisão a resposta para observações futuras (previsão) ou melhor compreender a relação entre a resposta e os preditores (inferência). 
+    \item Na aprendizagem não supervisionada, apenas dados de entrada são fornecidos nos exemplos. No entanto, mesmo sem rótulos (atributos de saída), podemos aprender relacionamentos e estruturas a partir de tais dados.
 \end{itemize}
 \end{ftst}
 
@@ -77,9 +77,9 @@ Exemplo de problema onde o \textbf{aprendizado não supervisionado} é usado:
 \vone
 \begin{figure}
     \centering
-    \includegraphics[scale=0.8]{Figuras/slide03_03.jpg}
+    \includegraphics[scale=0.9, trim={0 0 5cm 0 },clip]{Figuras/slide03_03.jpg}
 \end{figure}
-
+\small
 Isso é conhecido como um problema de cluster e, ao contrário do exemplo anterior, aqui não estamos tentando prever uma variável de saída.
 \end{ftst}
 
@@ -127,7 +127,7 @@ Para isso, podemos assumir que existe uma relação entre $Y$ e $X$:
 \vone
 Onde:
 \vone
-- $f(X)$ é uma função desconhecida de $X_1, X_2 e X_3$.
+- $f(X)$ é uma função desconhecida de $X_1$, $X_2$ e $X_3$.
 
 - $\epsilon$ é um erro aleatório, independente de $X$ e com média zero.
 \end{ftst}
@@ -225,44 +225,6 @@ Uma vez que assumimos que $f$ é linear, o problema de estimar $f$ é bastante s
 Após a seleção de um modelo, precisamos de um procedimento que use os dados de treinamento para ajustar ou treinar o modelo.
 
 \end{ftst}
-
-%=====
-
-\begin{ftst}{Métodos paramétricos X não-paramétricos}{{Aprendizado Estatístico}}
-\justifying
-\begin{itemize}
-    \item Ao evitar a suposição de uma forma específica para  $f$, os métodos não-paramétricos têm o potencial de ajustar com precisão uma faixa mais ampla de formas possíveis para $f$.
-    \item Qualquer abordagem paramétrica traz a possibilidade de que a forma usada para estimar $f$ seja muito diferente da $f$ verdadeira, caso em que o modelo resultante não se ajustará bem aos dados.
-    \item Mas abordagens não paramétricas sofrem de uma grande desvantagem: como não reduzem o problema de estimar $f$ para um pequeno número de parâmetros, é necessário um número muito grande de observações (muito mais do que o normalmente necessário para uma abordagem paramétrica) para obter uma estimativa precisa de $f$.
-
-\end{itemize}
-
-\end{ftst}
-
-
-%=====
-
-\begin{ftst}{Métodos paramétricos X não-paramétricos}{{Aprendizado Estatístico}}
-\vone
-\vone
-\begin{figure}[!htb]
-    \centering
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[scale=0.3]{Figuras/slide03_08.jpg}
-        \caption{Paramétrico}
-        \label{fig:01}
-    \end{minipage}%
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \includegraphics[scale=0.3]{Figuras/slide03_09.jpg}
-        \caption{Não-paramétrico}
-        \label{fig:02}
-    \end{minipage}
-\end{figure}
-
-\end{ftst}
-
 
 %=====
 
