@@ -223,22 +223,24 @@ Problema: o \textit{holdout} não permite avaliar o quanto o desempenho de uma t
 
 \end{ftst}
 
+
 %=====
 
-\begin{ftst}{Amostragem}{Avaliação de modelos}
+\begin{ftst}{Parâmetros versus Hiperparâmetros}{Escolha do modelo}
 \justifying
-\textbf{Métodos de amostragem aleatória:}
+Um \textbf{parâmetro} de modelo é uma variável de configuração interna ao modelo e cujo valor pode ser estimado a partir dos dados.
 \vone
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.7]{Figuras/slide04_03.jpg}
-\end{figure}
+Um \textbf{hiperparâmetro} de modelo é uma configuração externa ao modelo e cujo valor não pode ser estimado a partir dos dados. Hiperparâmetros formam a estrutura do modelo.
+\vone
+Portanto, caso você esteja trabalhando com uma família única de modelos, como por exemplo MLPs, a escolha do modelo se resume a escolha dos hiperparâmetros que formam a melhor estrutura para um determinado conjunto de dados. 
+\vone
+Mas como encontrá-los?
 
 \end{ftst}
 
 %=====
 
-\begin{ftst}{Amostragem}{Avaliação de modelos}
+\begin{ftst}{Amostragem}{Escolha do modelo}
 \justifying
 \textbf{Métodos de amostragem por validação cruzada:}
 \vone
@@ -255,22 +257,18 @@ O desempenho final do preditor é a média dos desempenhos observados sobre cada
 
 %=====
 
-\begin{ftst}{Amostragem}{Avaliação de modelos}
+\begin{ftst}{Amostragem}{Escolha do modelo}
 \justifying
-\textbf{Métodos de amostragem \textit{bootstrap}:}
-\vone
+\textbf{Validação cruzada com \textit{avaliação fora da amostra}:}
+
 \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{Figuras/slide04_05.jpg}
+    \includegraphics[scale=0.3]{Figuras/cross_validation.png}
 \end{figure}
-\small
-Nesse método, $r$ subconjuntos de treinamento são gerados pela amostragem aleatória de exemplos do conjunto original, com repetição. Os exemplos não selecionados compõem os subconjuntos de teste.
-\vone
-O desempenho final do preditor é a média dos desempenhos observados sobre cada subconjunto de teste.
+
+
 
 \end{ftst}
-
-%=====
 
 
 
